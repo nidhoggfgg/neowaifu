@@ -1,0 +1,22 @@
+/* this file is unused, see src/lapp.ts */
+#waifu {
+	bottom: 0px;
+    background:rgba(0, 0, 0, 0);
+	left: 0;
+	line-height: 0;
+	margin-bottom: -10px;
+	position: fixed;
+	transform: translateY(3px);
+	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
+	z-index: 1;
+}
+
+#waifu:hover {
+	transform: translateY(0);
+}
+
+#live2d {
+	height: 300px;
+	position: relative;
+	width: 300px;
+}

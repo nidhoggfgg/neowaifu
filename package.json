@@ -1,0 +1,29 @@
+{
+  "name": "neowaifu",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "source": "src/lapp.ts",
+  "main": "dist/neowaifu.js",
+  "module": "dist/neowaifu.mjs",
+  "typings": "dist/neowaifu.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "nidhoggfgg",
+  "license": "MIT",
+  "dependencies": {
+    "localforage": "^1.10.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "esbuild": "^0.18.17",
+    "postcss": "^8.4.27",
+    "rollup": "^3.26.3",
+    "rollup-plugin-dts": "^5.3.0",
+    "tslib": "^2.6.1",
+    "typescript": "^5.1.6"
+  }
+}
