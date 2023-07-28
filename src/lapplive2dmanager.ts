@@ -97,7 +97,7 @@ export class LAppLive2DManager {
   public onTap(x: number, y: number): void {
     if (LAppDefine.DebugLogEnable) {
       LAppPal.printMessage(
-        `[APP]tap point: {x: ${x.toFixed(2)} y: ${y.toFixed(2)}}`
+        `[Waifu]tap point: {x: ${x.toFixed(2)} y: ${y.toFixed(2)}}`
       );
     }
 
@@ -105,14 +105,14 @@ export class LAppLive2DManager {
       if (this._models.at(i).hitTest(LAppDefine.HitAreaNameHead, x, y)) {
         if (LAppDefine.DebugLogEnable) {
           LAppPal.printMessage(
-            `[APP]hit area: [${LAppDefine.HitAreaNameHead}]`
+            `[Waifu]hit area: [${LAppDefine.HitAreaNameHead}]`
           );
         }
         this._models.at(i).setRandomExpression();
       } else if (this._models.at(i).hitTest(LAppDefine.HitAreaNameBody, x, y)) {
         if (LAppDefine.DebugLogEnable) {
           LAppPal.printMessage(
-            `[APP]hit area: [${LAppDefine.HitAreaNameBody}]`
+            `[Waifu]hit area: [${LAppDefine.HitAreaNameBody}]`
           );
         }
         this._models
@@ -175,7 +175,7 @@ export class LAppLive2DManager {
   public changeScene(index: number): void {
     this._sceneIndex = index;
     if (LAppDefine.DebugLogEnable) {
-      LAppPal.printMessage(`[APP]model index: ${this._sceneIndex}`);
+      LAppPal.printMessage(`[Waifu]model index: ${this._sceneIndex}`);
     }
 
     // ModelDir[]に保持したディレクトリ名から

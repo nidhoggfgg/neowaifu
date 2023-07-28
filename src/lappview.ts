@@ -162,7 +162,7 @@ export class LAppView {
       ); // 論理座標変化した座標を取得。
 
       if (LAppDefine.DebugTouchLogEnable) {
-        LAppPal.printMessage(`[APP]touchesEnded x: ${x} y: ${y}`);
+        LAppPal.printMessage(`[Waifu]touchesEnded x: ${x} y: ${y}`);
       }
       live2DManager.onTap(x, y);
     }

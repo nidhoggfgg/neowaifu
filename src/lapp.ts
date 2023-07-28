@@ -1,14 +1,7 @@
 import { LAppDelegate } from './lappdelegate';
 import * as LAppDefine from './lappdefine';
 
-export function initWaifu(config: {
-  waifuPath: string,
-  models: string[],
-  size: { width: number; height: number } | 'full',
-  renderRatio: number,
-  useCache: boolean,
-  debug: boolean,
-}): void {
+export function initWaifu(config: LAppDefine.WaifuConfig): void {
   // init definition
   LAppDefine.initDef(config);
 
@@ -23,8 +16,8 @@ export function initWaifu(config: {
   // inject css & ratio
   let css;
   if (config.size !== 'full') {
-    const { width, height } = config.size;
-    const r = config.renderRatio;
+    const { width, height } = config.size!;
+    const r = config.renderRatio!;
     css = genCss(width, height);
     canvas.width = width * r;
     canvas.height = height * r;

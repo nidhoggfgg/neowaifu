@@ -7,14 +7,16 @@
 
 import { LogLevel } from '../lapp/framework/live2dcubismframework';
 
-export function initDef(config: {
-  waifuPath: string,
-  models: string[],
-  size: {width: number; height: number} | 'full',
-  renderRatio: number,
-  useCache: boolean,
-  debug: boolean,
-}) {
+export interface WaifuConfig {
+  waifuPath?: string;
+  models?: string[];
+  size?: { width: number; height: number } | 'full';
+  renderRatio?: number;
+  useCache?: boolean;
+  debug?: boolean;
+}
+
+export function initDef(config: WaifuConfig) {
   let { waifuPath, models, size, renderRatio, useCache, debug } = config;
   if (!waifuPath.endsWith("/")) {
     waifuPath += '/';

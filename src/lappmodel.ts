@@ -80,14 +80,14 @@ async function fetchOrCache(url: string): Promise<ArrayBuffer> {
     const value: ArrayBuffer | null = await localForage.getItem(url);
     if (value === null) {
       if (LAppDefine.DebugLogEnable) {
-        LAppPal.printMessage(`[APP]fetch : ${url}`);
+        LAppPal.printMessage(`[Waifu]fetch : ${url}`);
       }
       const arrayBuffer = await fetchIt();
       await localForage.setItem(url, arrayBuffer);
       return await Promise.resolve(arrayBuffer);
     } else {
       if (LAppDefine.DebugLogEnable) {
-        LAppPal.printMessage(`[APP]use cache : ${url}`);
+        LAppPal.printMessage(`[Waifu]use cache : ${url}`);
       }
       return await Promise.resolve(value);
     }
@@ -570,7 +570,7 @@ export class LAppModel extends CubismUserModel {
       this._motionManager.setReservePriority(priority);
     } else if (!this._motionManager.reserveMotion(priority)) {
       if (this._debugMode) {
-        LAppPal.printMessage("[APP]can't start motion.");
+        LAppPal.printMessage("[Waifu]can't start motion.");
       }
       return InvalidMotionQueueEntryHandleValue;
     }
@@ -621,7 +621,7 @@ export class LAppModel extends CubismUserModel {
     }
 
     if (this._debugMode) {
-      LAppPal.printMessage(`[APP]start motion: [${group}_${no}`);
+      LAppPal.printMessage(`[Waifu]start motion: [${group}_${no}`);
     }
     return this._motionManager.startMotionPriority(
       motion,
@@ -662,7 +662,7 @@ export class LAppModel extends CubismUserModel {
     const motion: ACubismMotion = this._expressions.getValue(expressionId);
 
     if (this._debugMode) {
-      LAppPal.printMessage(`[APP]expression: [${expressionId}]`);
+      LAppPal.printMessage(`[Waifu]expression: [${expressionId}]`);
     }
 
     if (motion != null) {
@@ -673,7 +673,7 @@ export class LAppModel extends CubismUserModel {
       );
     } else {
       if (this._debugMode) {
-        LAppPal.printMessage(`[APP]expression[${expressionId}] is null`);
+        LAppPal.printMessage(`[Waifu]expression[${expressionId}] is null`);
       }
     }
   }
@@ -744,7 +744,7 @@ export class LAppModel extends CubismUserModel {
       const name = `${group}_${i}`;
       if (this._debugMode) {
         LAppPal.printMessage(
-          `[APP]load motion: ${motionFileName} => [${name}]`
+          `[Waifu]load motion: ${motionFileName} => [${name}]`
         );
       }
 

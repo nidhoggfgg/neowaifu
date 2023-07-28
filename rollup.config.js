@@ -1,14 +1,16 @@
 import dts from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default [
   {
-    input: 'src/lapp.ts',
+    input: 'src/main.ts',
     output: [
       {
         file: 'dist/neowaifu.js',
-        format: 'cjs',
+        format: 'iife',
         sourcemap: true,
       },
       {
@@ -17,11 +19,10 @@ export default [
         sourcemap: true,
       },
     ],
-    external: ['localforage'],
-    plugins: [typescript()],
+    plugins: [nodeResolve(), commonjs({include: ['node_modules/localforage/**']}),typescript()],
   },
   {
-    input: 'src/lapp.ts',
+    input: 'src/main.ts',
     output: {
       file: 'dist/neowaifu.d.ts',
       format: 'es',
