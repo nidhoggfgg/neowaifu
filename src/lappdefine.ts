@@ -24,6 +24,7 @@ export function initDef(config: {
   ModelDirSize = models.length;
   UseCache = useCache;
   DebugLogEnable = debug;
+  RenderRatio = renderRatio;
   if (size === 'full') {
     CanvasSize = 'full';
   } else {
@@ -36,6 +37,7 @@ export function initDef(config: {
 
 // Canvas width and height pixel values, or dynamic screen size ('auto').
 export var CanvasSize: { width: number; height: number } | 'full';
+export var RenderRatio: number;
 
 // 画面
 export const ViewScale = 1.0;

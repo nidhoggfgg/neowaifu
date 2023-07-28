@@ -1,37 +1,5 @@
-/**
- * Copyright(c) Live2D Inc. All rights reserved.
- *
- * Use of this source code is governed by the Live2D Open Software license
- * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
- */
-
 import { LAppDelegate } from './lappdelegate';
 import * as LAppDefine from './lappdefine';
-
-function genCss(width: number, height: number): string {
-  return `
-#waifu {
-	bottom: 0px;
-  background:rgba(0, 0, 0, 0);
-	left: 0;
-	line-height: 0;
-	margin-bottom: -10px;
-	position: fixed;
-	transform: translateY(3px);
-	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
-	z-index: 1;
-}
-
-#waifu:hover {
-	transform: translateY(0);
-}
-
-#live2d {
-  width: ${width};
-  height: ${height};
-	position: relative;
-}`;
-}
 
 export function initWaifu(config: {
   waifuPath: string,
@@ -57,9 +25,9 @@ export function initWaifu(config: {
   if (config.size !== 'full') {
     const { width, height } = config.size;
     const r = config.renderRatio;
-    css = genCss(width * r, height *r);
-    canvas.width = width;
-    canvas.height = height;
+    css = genCss(width, height);
+    canvas.width = width * r;
+    canvas.height = height * r;
   } else {
     css = genCss(window.innerWidth, window.innerHeight);
     canvas.width = window.innerWidth;
@@ -93,4 +61,29 @@ function styleInject(css: string) {
   const style = document.createElement('style');
   head.appendChild(style);
   style.appendChild(document.createTextNode(css));
+}
+
+function genCss(width: number, height: number): string {
+  return `
+#waifu {
+	bottom: 0px;
+  background:rgba(0, 0, 0, 0);
+	left: 0;
+	line-height: 0;
+	margin-bottom: -10px;
+	position: fixed;
+	transform: translateY(3px);
+	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
+	z-index: 1;
+}
+
+#waifu:hover {
+	transform: translateY(0);
+}
+
+#live2d {
+  width: ${width}px;
+  height: ${height}px;
+	position: relative;
+}`;
 }

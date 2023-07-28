@@ -1,17 +1,14 @@
 {
   "name": "neowaifu",
   "version": "1.0.0",
+  "author": "nidhoggfgg",
   "type": "module",
-  "description": "",
-  "source": "src/lapp.ts",
-  "main": "dist/neowaifu.js",
-  "module": "dist/neowaifu.mjs",
-  "typings": "dist/neowaifu.d.ts",
+  "description": "library for placing live2d waifu on web pages",
+  "keywords": ["live2d", "waifu"],
+  "main": "src/lapp.ts",
   "scripts": {
     "build": "rollup -c"
   },
-  "keywords": [],
-  "author": "nidhoggfgg",
   "license": "MIT",
   "dependencies": {
     "localforage": "^1.10.0"

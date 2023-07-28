@@ -16,7 +16,7 @@
 }
 
 #live2d {
-	height: 300px;
+	width: 1px;
+	height: 1px;
 	position: relative;
-	width: 300px;
 }

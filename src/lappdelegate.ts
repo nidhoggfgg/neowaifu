@@ -331,14 +331,14 @@ function onMouseMoved(e: MouseEvent): void {
   }
 
   const rect = (e.target as Element).getBoundingClientRect();
-  const posX: number = e.clientX - rect.left;
-  const posY: number = e.clientY - rect.top;
-  // let posX: number = e.clientX;
-  // let posY: number = e.clientY - window.innerHeight + canvas.height;
+  // const posX: number = e.clientX - rect.left;
+  // const posY: number = e.clientY - rect.top;
+  let posX: number = e.clientX;
+  let posY: number = e.clientY - window.innerHeight + canvas.height;
 
-  // // 图像在网页的坐下角，简单处理坐标将超过画布边界坐标就等与边界坐标
-  // posX = (posX > canvas.width) ? canvas.width : posX;
-  // posY = (posY < 0) ? 0 : posY;
+  // 图像在网页的坐下角，简单处理坐标将超过画布边界坐标就等与边界坐标
+  posX = (posX > canvas.width) ? canvas.width : posX;
+  posY = (posY < 0) ? 0 : posY;
 
 
   LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
