@@ -19,7 +19,12 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [nodeResolve(), commonjs({include: ['node_modules/localforage/**']}),typescript()],
+    plugins: [
+      nodeResolve(),
+      commonjs({ include: ['node_modules/localforage/**'] }),
+      typescript(),
+      terser()
+    ],
   },
   {
     input: 'src/main.ts',
