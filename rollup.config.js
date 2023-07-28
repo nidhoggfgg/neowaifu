@@ -3,6 +3,7 @@ import terser from '@rollup/plugin-terser';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
+import copy from 'rollup-plugin-copy';
 
 export default [
   {
@@ -19,7 +20,11 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [nodeResolve(), commonjs({include: ['node_modules/localforage/**']}),typescript()],
+    plugins: [
+      nodeResolve(),
+      commonjs({ include: ['node_modules/localforage/**'] }),
+      typescript(),
+    ],
   },
   {
     input: 'src/lazy.ts',
@@ -30,7 +35,12 @@ export default [
         sourcemap: true,
       }
     ],
-    plugins: [nodeResolve(), commonjs({include: ['node_modules/localforage/**']}),typescript(), terser()],
+    plugins: [
+      nodeResolve(),
+      commonjs({ include: ['node_modules/localforage/**'] }),
+      typescript(),
+      terser()
+    ],
   },
   {
     input: 'src/main.ts',
@@ -39,6 +49,13 @@ export default [
       format: 'es',
     },
     external: ['localforage'],
-    plugins: [dts()],
+    plugins: [
+      dts(),
+      copy({
+        targets: [
+          { src: 'lapp/core/live2dcubismcore.d.ts', dest: 'dist/' },
+        ]
+      })
+    ],
   },
 ]
