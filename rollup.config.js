@@ -22,6 +22,17 @@ export default [
     plugins: [nodeResolve(), commonjs({include: ['node_modules/localforage/**']}),typescript()],
   },
   {
+    input: 'src/lazy.ts',
+    output: [
+      {
+        file: 'dist/neowaifu-lazy.min.js',
+        format: 'iife',
+        sourcemap: true,
+      }
+    ],
+    plugins: [nodeResolve(), commonjs({include: ['node_modules/localforage/**']}),typescript(), terser()],
+  },
+  {
     input: 'src/main.ts',
     output: {
       file: 'dist/neowaifu.d.ts',

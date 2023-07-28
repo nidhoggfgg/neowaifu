@@ -9,6 +9,7 @@ import { LogLevel } from '../lapp/framework/live2dcubismframework';
 
 export interface WaifuConfig {
   waifuPath?: string;
+  corejs?: string;
   models?: string[];
   size?: { width: number; height: number } | 'full';
   renderRatio?: number;

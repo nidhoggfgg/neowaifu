@@ -2,16 +2,33 @@ import { LAppDelegate } from './lappdelegate';
 import * as LAppDefine from './lappdefine';
 
 export function initWaifu(config: LAppDefine.WaifuConfig): void {
-  // init definition
   LAppDefine.initDef(config);
+  injectLive2d(config);
+  injectJs(config.corejs).then(() => {
+    startWaifu();
+  }).catch(err => {
+    console.log(err);
+  });
+}
 
+function injectJs(url: string) {
+  return new Promise((resolve, _reject) => {
+    if (typeof document === 'undefined') { return; }
+    const body = document.body || document.getElementsByTagName('body')[0];
+    const js = document.createElement('script');
+    js.onload = () => resolve("success");
+    js.src = url;
+    body.appendChild(js);
+  });
+}
+
+function injectLive2d(config: LAppDefine.WaifuConfig) {
   // create dom
   const waifu = document.createElement("div");
   waifu.id = "waifu";
   const canvas = document.createElement("canvas");
   canvas.id = "live2d";
   waifu.appendChild(canvas);
-  document.body.appendChild(waifu);
 
   // inject css & ratio
   let css;
@@ -26,8 +43,15 @@ export function initWaifu(config: LAppDefine.WaifuConfig): void {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
-  styleInject(css);
+  if (!css || typeof document === 'undefined') { return; }
+  const head = document.head || document.getElementsByTagName('head')[0];
+  const style = document.createElement('style');
+  head.appendChild(style);
+  style.appendChild(document.createTextNode(css));
+  document.body.appendChild(waifu);
+}
 
+function startWaifu() {
   // init
   if (LAppDelegate.getInstance().initialize() == false) {
     return;
@@ -45,15 +69,7 @@ export function initWaifu(config: LAppDefine.WaifuConfig): void {
 
   window.addEventListener("beforeunload", () => {
     LAppDelegate.releaseInstance();
-  })
-}
-
-function styleInject(css: string) {
-  if (!css || typeof document === 'undefined') { return; }
-  const head = document.head || document.getElementsByTagName('head')[0];
-  const style = document.createElement('style');
-  head.appendChild(style);
-  style.appendChild(document.createTextNode(css));
+  });
 }
 
 function genCss(width: number, height: number): string {
