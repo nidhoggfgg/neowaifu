@@ -1,6 +1,6 @@
 {
   "name": "neowaifu",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": "nidhoggfgg <nidhoggfgg@gmail.com>",
   "type": "module",
   "description": "library for placing live2d waifu on web pages",
