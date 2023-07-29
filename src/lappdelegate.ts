@@ -82,10 +82,10 @@ export class LAppDelegate {
 
     if (supportTouch) {
       // タッチ関連コールバック関数登録
-      canvas.ontouchstart = onTouchBegan;
-      canvas.ontouchmove = onTouchMoved;
-      canvas.ontouchend = onTouchEnded;
-      canvas.ontouchcancel = onTouchCancel;
+      window.ontouchstart = onTouchBegan;
+      window.ontouchmove = onTouchMoved;
+      window.ontouchend = onTouchEnded;
+      window.ontouchcancel = onTouchCancel;
     } else {
       // マウス関連コールバック関数登録
       canvas.onmousedown = onClickBegan;

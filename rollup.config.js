@@ -10,8 +10,8 @@ export default [
     input: 'src/main.ts',
     output: [
       {
-        file: 'dist/neowaifu.js',
-        format: 'iife',
+        file: 'dist/neowaifu.cjs',
+        format: 'cjs',
         sourcemap: true,
       },
       {
@@ -54,6 +54,9 @@ export default [
       copy({
         targets: [
           { src: 'lapp/core/live2dcubismcore.d.ts', dest: 'dist/' },
+          // sample project
+          { src: 'dist/*.d.ts', dest: 'sample/src/neowaifu/' },
+          { src: 'dist/neowaifu.mjs', dest: 'sample/src/neowaifu/' },
         ]
       })
     ],
