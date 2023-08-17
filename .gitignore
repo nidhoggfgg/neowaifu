@@ -25,3 +25,8 @@ dist-ssr
 
 # sample project
 sample/src/neowaifu/
+
+yarn.lock
+pnpm-lock.yaml
+.rollup.cache/
+*.bck

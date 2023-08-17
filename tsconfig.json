@@ -1,34 +1,36 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    // "moduleResolution": "node",
-    // "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "Node",
+    "noEmitOnError": true,
+    "strict": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "outDir": "./dist",
-    "removeComments": true,
-    "sourceMap": true,
-    "baseUrl": "./",
-    "noImplicitAny": true,
-    "useUnknownInCatchVariables": true,
+    "declaration": true,
+    "declarationDir": "dist/dts",
     "allowSyntheticDefaultImports": true,
-
-    // "strict": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@cubism/*": ["cubism/framework/src/*"]
+    },
+    "types": [
+      "node",
+      "offscreencanvas"
+    ],
   },
   "include": [
-    "src",
-    "lapp/**/*.ts",
-    "lapp/**/*.d.ts"
-  ]
+    "src/**/*",
+    "cubism/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "sample",
+    "dist",
+    "src/types"
+  ],
 }
