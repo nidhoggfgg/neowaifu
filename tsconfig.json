@@ -3,7 +3,9 @@
     "target": "ES2020",
     "module": "ES2020",
     "noEmitOnError": true,
-    "strict": true,
+    "moduleResolution": "NodeNext",
+    // "strict": true,
+    "strictNullChecks": false,
     "incremental": true,
     "esModuleInterop": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -12,6 +14,9 @@
     "declarationDir": "dist/dts",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "paths": {
+      "@cubism/*": ["cubism/framework/src/*"]
+    },
   },
   "include": [
     "src/**/*",
