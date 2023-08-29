@@ -26,9 +26,18 @@ dist-ssr
 # sample project
 sample/src/neowaifu/
 
+# test file
+dev-test/
+
+# lock file
 yarn.lock
 pnpm-lock.yaml
+
+# build cache
 .rollup.cache/
+
+# backup file
 *.bck
 
+# corejs
 cubism/core/live2dcubismcore.js

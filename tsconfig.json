@@ -2,21 +2,29 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "ES2020",
-    "noEmitOnError": true,
-    "moduleResolution": "NodeNext",
-    // "strict": true,
-    "strictNullChecks": false,
-    "incremental": true,
-    "esModuleInterop": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",
     "outDir": "./dist",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "incremental": true,
     "declaration": true,
     "declarationDir": "dist/dts",
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    "strict": true,
     "paths": {
-      "@cubism/*": ["cubism/framework/src/*"]
+      "@cubism/*": ["cubism/Framework/src/*"]
     },
+
+    // for comile cubism/Framework...
+    // 😭😭😭
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "useUnknownInCatchVariables": true,
+    "allowImportingTsExtensions": true,
   },
   "include": [
     "src/**/*",

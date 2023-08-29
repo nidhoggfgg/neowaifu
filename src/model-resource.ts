@@ -1,10 +1,10 @@
 import { CubismModelSettingJson } from '@cubism/cubismmodelsettingjson.js';
-import { ICubismModelSetting as ModelSetting } from 'cubism/framework/src/icubismmodelsetting.js'
+import { ICubismModelSetting as ModelSetting } from '@cubism/icubismmodelsetting.js'
 import * as PIXI from 'pixi.js';
 
 type Dict = { [key: string]: ArrayBuffer };
 
-interface ModelResources {
+export interface ModelResources {
     setting: ModelSetting
     moc: ArrayBuffer
     textures?: PIXI.Texture[]
@@ -13,9 +13,10 @@ interface ModelResources {
 }
 
 export async function loadModel(path: string, model: string): Promise<ModelResources> {
-    const buffer = await fetchOrCache(path, model);
+    const dir = `${path}/${model}`;
+    const buffer = await fetchOrCache(dir, `${model}.model3.json`);
     const s = new CubismModelSettingJson(buffer, buffer.byteLength);
-    return Promise.all([loadMoc(path, s), loadTextures(path, s), loadPhysics(path, s), loadExpressions(path, s)]).then(
+    return Promise.all([loadMoc(dir, s), loadTextures(dir, s), loadPhysics(dir, s), loadExpressions(dir, s)]).then(
         (values) => {
             return {
                 setting: s,
