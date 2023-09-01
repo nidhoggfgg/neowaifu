@@ -7,4 +7,3 @@ export interface WaifuConfig {
   useCache?: boolean;
   debug?: boolean;
 }
-

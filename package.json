@@ -22,9 +22,7 @@
     "build": "rollup -c"
   },
   "license": "MIT",
-  "dependencies": {
-    "pixi.js": "^7.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
@@ -41,5 +39,15 @@
     "dist/**/*.ts",
     "dist/**/*.d.ts",
     "dist/**/*.map"
-  ]
+  ],
+  "peerDependencies": {
+    "@pixi/constants": "^7.2.4",
+    "@pixi/core": "^7.2.4",
+    "@pixi/math": "^7.2.4",
+    "@pixi/runner": "^7.2.4",
+    "@pixi/settings": "^7.2.4",
+    "@pixi/sprite": "^7.2.4",
+    "@pixi/ticker": "^7.2.4",
+    "@pixi/utils": "^7.2.4"
+  }
 }
